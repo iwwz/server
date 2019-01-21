@@ -45,7 +45,7 @@ use OCP\AppFramework\Db\Entity;
  * @method void setVersion(int $version)
  * @method bool getPasswordInvalid()
  */
-class PublicKeyToken extends Entity implements IToken {
+class PublicKeyToken extends Entity implements INamedToken {
 
 	const VERSION = 2;
 

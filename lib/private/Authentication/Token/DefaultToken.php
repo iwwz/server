@@ -39,7 +39,7 @@ use OCP\AppFramework\Db\Entity;
  * @method int getLastActivity()
  * @method void setVersion(int $version)
  */
-class DefaultToken extends Entity implements IToken {
+class DefaultToken extends Entity implements INamedToken {
 
 	const VERSION = 1;
 

@@ -11,6 +11,7 @@
 	var DELETED_REGEXP = new RegExp(/^(.+)\.d[0-9]+$/);
 	var FILENAME_PROP = '{http://nextcloud.org/ns}trashbin-filename';
 	var DELETION_TIME_PROP = '{http://nextcloud.org/ns}trashbin-deletion-time';
+	var TRASHBIN_ORIGINAL_LOCATION = '{http://nextcloud.org/ns}trashbin-original-location';
 
 	/**
 	 * Convert a file name in the format filename.d12345 to the real file name.
@@ -54,11 +55,15 @@
 		initialize: function() {
 			this.client.addFileInfoParser(function(response, data) {
 				var props = response.propStat[0].properties;
+				var path = props[TRASHBIN_ORIGINAL_LOCATION];
+				if (path !== undefined) {
+					path = path.substr(0, path.length - props[FILENAME_PROP].length);
+				}
 				return {
 					displayName: props[FILENAME_PROP],
 					mtime: parseInt(props[DELETION_TIME_PROP], 10) * 1000,
 					hasPreview: true,
-					path: data.path.substr(6), // remove leading /trash
+					path: path,
 				}
 			});
 
@@ -248,7 +253,7 @@
 		 * Returns list of webdav properties to request
 		 */
 		_getWebdavProperties: function() {
-			return [FILENAME_PROP, DELETION_TIME_PROP].concat(this.filesClient.getPropfindProperties());
+			return [FILENAME_PROP, DELETION_TIME_PROP, TRASHBIN_ORIGINAL_LOCATION].concat(this.filesClient.getPropfindProperties());
 		},
 
 		/**

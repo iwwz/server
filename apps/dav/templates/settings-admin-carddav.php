@@ -30,6 +30,21 @@ script('dav', [
 ?>
 <form id="CardDAV" class="section">
 	<h2><?php p($l->t('Contacts server')); ?></h2>
+	<p class="settings-hint">
+		<?php print_unescaped(str_replace(
+			[
+				'{contactsappstoreopen}',
+				'{contactsdocopen}',
+				'{linkclose}',
+			],
+			[
+				'<a target="_blank" href="../apps/office/contacts">',
+				'<a target="_blank" href="' . link_to_docs('user-sync-contacts') . '" rel="noreferrer noopener">',
+				'</a>',
+			],
+			$l->t('Also install the {contactsappstoreopen}Contacts app{linkclose}, or {contactsdocopen}connect your desktop & mobile for syncing ↗{linkclose}.')
+		)); ?>
+	</p>
 	<p>
 		<input type="checkbox" name="carddavSyncSystemAddressbook" id="carddavSyncSystemAddressbook" class="checkbox"
 			<?php ($_['sync_system_addressbook'] === 'yes') ? print_unescaped('checked="checked"') : null ?>/>

@@ -30,7 +30,6 @@ use OCP\AppFramework\Db\Entity;
  * @method void setId(int $id)
  * @method void setUid(string $uid);
  * @method void setLoginName(string $loginname)
- * @method void setName(string $name)
  * @method string getToken()
  * @method void setType(int $type)
  * @method int getType()
@@ -177,6 +176,10 @@ class DefaultToken extends Entity implements INamedToken {
 
 	public function getName(): string {
 		return parent::getName();
+	}
+
+	public function setName(string $name): void {
+		parent::setName($name);
 	}
 
 	public function getRemember(): int {

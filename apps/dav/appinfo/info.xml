@@ -33,6 +33,7 @@
 			<step>OCA\DAV\Migration\RefreshWebcalJobRegistrar</step>
 			<step>OCA\DAV\Migration\RemoveOrphanEventsAndContacts</step>
 			<step>OCA\DAV\Migration\RemoveClassifiedEventActivity</step>
+			<step>OCA\DAV\Migration\CardDAVCleanupPhotoCache</step>
 		</post-migration>
 		<live-migration>
 			<step>OCA\DAV\Migration\ChunkCleanup</step>

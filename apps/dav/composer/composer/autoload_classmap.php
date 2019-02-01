@@ -156,6 +156,7 @@ return array(
     'OCA\\DAV\\Migration\\BuildCalendarSearchIndex' => $baseDir . '/../lib/Migration/BuildCalendarSearchIndex.php',
     'OCA\\DAV\\Migration\\BuildCalendarSearchIndexBackgroundJob' => $baseDir . '/../lib/Migration/BuildCalendarSearchIndexBackgroundJob.php',
     'OCA\\DAV\\Migration\\CalDAVRemoveEmptyValue' => $baseDir . '/../lib/Migration/CalDAVRemoveEmptyValue.php',
+    'OCA\\DAV\\Migration\\CardDAVCleanupPhotoCache' => $baseDir . '/../lib/Migration/CardDAVCleanupPhotoCache.php',
     'OCA\\DAV\\Migration\\ChunkCleanup' => $baseDir . '/../lib/Migration/ChunkCleanup.php',
     'OCA\\DAV\\Migration\\FixBirthdayCalendarComponent' => $baseDir . '/../lib/Migration/FixBirthdayCalendarComponent.php',
     'OCA\\DAV\\Migration\\RefreshWebcalJobRegistrar' => $baseDir . '/../lib/Migration/RefreshWebcalJobRegistrar.php',
